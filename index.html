@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.2/css/bulma.min.css">
+    <link rel="stylesheet" href="app.css">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <title>ENA tracker</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="block">
+
+            <h1 class="is-size-2">ENA read data explorer</h1>
+
+            <!-- taxononmy search (optional)-->
+            <div class="box">
+                <h2 class="is-size-5">1. Find taxonomy ID</h2>
+                <p>If you don't know the taxonomy term you want, type a search string below and we'll show some possible
+                    IDs. Otherwise, enter the ID directly in the form below</p>
+                <span class="is-primary is-light tag m-2">NCBI results</span>
+                <span class="is-light is-link tag m-2">ENA results</span>
+
+                <form action="" id="taxSearch">
+                    <div class="control">
+                        <div class="field has-addons">
+                            <input type="text" name="taxString" class="mr-2" id="taxString" placeholder="search string">
+                            <button id="submitTaxSearch" class="button is-warning">search</button>
+                        </div>
+                    </div>
+                </form>
+                <div class="buttons are-small" id="taxButtons"></div>
+            </div>
+
+            <!-- Reads/ Sampls search-->
+            <div class="box">
+                <h2 class="is-size-5">2. Now search for samples</h2>
+                <p class="mb-2">Enter a numerical NCBI taxonomy ID</p>
+                <form action="" id="sampleSearch">
+                    <div class="control mb-2">
+                        <div class="field has-addons">
+                            <input type="text" name="taxID" id="taxID" placeholder="taxonomy ID" class="mr-2">
+                            <button id="sampleSearch" class="button is-warning">search</button>
+                        </div>
+                    </div>
+                </form>
+                <div id="sampleSearchBox"></div>
+                <table id="sampleResultsTable" class="table is-hidden">
+                    <tbody id="sampleResults">
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <script src="app.js"></script>
+</body>
+
+</html>
